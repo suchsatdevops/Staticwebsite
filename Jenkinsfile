@@ -21,7 +21,8 @@ pipeline {
 
     stage('deploy') {
       steps {
-        sh 'ls'
+        sh 'aws s3 cp s3://suchsatbucket/Staticwebsite.zip .
+        unzip Staticwebsite.zip'
       }
     }
 
