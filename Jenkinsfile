@@ -23,7 +23,7 @@ pipeline {
       steps {
         sh '''
             aws s3 cp s3://suchsatbucket/Staticwebsite.zip .
-            unzip Staticwebsite.zip
+            scp staticwebsite root@10.0.15.106:/var/www/html/
           '''
       }
     }
