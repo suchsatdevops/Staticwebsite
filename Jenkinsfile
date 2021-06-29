@@ -22,8 +22,10 @@ pipeline {
     stage('deploy') {
       steps {
         sh '''
+            rm -fR *
             aws s3 cp s3://suchsatbucket/Staticwebsite.zip .
-            scp staticwebsite root@10.0.15.106:/var/www/html/
+            unzip Staticwebsite.zip
+            scp index.html root@10.0.15.106:/var/www/html/
           '''
       }
     }
